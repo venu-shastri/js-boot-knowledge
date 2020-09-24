@@ -1,0 +1,61 @@
+<html>
+    <head>
+        <script>
+            // window ->key -> x
+            //value - 10
+            var x=10;//variable declaration
+            var x=20;
+
+            function newTest(){
+                console.log(x);
+                var x;
+            }
+            newTest();
+
+            // Function object creation using function declaratiojn grammer
+            //add is a function object reference.
+            function add(x,y){
+            console.log(result);//2 nd pass
+            var result=0;
+            result=x+y;
+            console.log(result);
+            }
+            function div(x,y){
+                var result="100";
+                console.log(result);
+                if(y!=0){
+                    var result=x+y;
+                }
+                console.log(result);//0
+            }
+          
+          function test(){
+
+              x=10;//executed in second pass - x will be added -> global object
+          }
+
+          
+
+        
+
+          test();
+          console.log(window.gbx);
+
+           // div.apply(10,[5,100]);
+            div.call(10,5,10);
+
+            //call - apply
+            add(10,20);
+
+            add.xyz="Hello";
+            add.prototype.abc="hi";
+            delete add.xyz;
+            //Function Object Creation using "Function" Constructor explicitly
+            var addFun=new Function("a","b","return a + b");
+            console.log(addFun(10,20));
+        </script>
+    </head>
+    <body>
+    <h3>Js Test in browser</h3>
+    </body>
+</html>
