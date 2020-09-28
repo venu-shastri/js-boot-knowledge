@@ -1,0 +1,14 @@
+{
+  "name": "demo",
+  "version": "1.0.0",
+  "description": "Test Projet",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsc & node ./build/main.js"
+    },
+  "author": "Venu",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.0.3"
+  }
+}
