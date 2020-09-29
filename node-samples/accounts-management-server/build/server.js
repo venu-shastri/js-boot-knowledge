@@ -10,11 +10,15 @@ var accountDataService_1 = require("./accountDataService");
 var userDataMemoryRepository_1 = require("./userDataMemoryRepository");
 var userModel_1 = require("./userModel");
 var body_parser_1 = __importDefault(require("body-parser"));
+var path_1 = __importDefault(require("path")); // node Js Built in module
 var server = express_1.default();
 var PORT = 8003;
 var accountServiceref = new accountDataService_1.AccountDataService(new userDataMemoryRepository_1.UserDataMemoryRepository());
 //Configure - middleware /filter
 server.use(body_parser_1.default.json());
+server.get("/index.html", function (req, res) {
+    res.sendFile(path_1.default.join(__dirname + '/index.html'));
+});
 //http get request - http://localhost:8003/teabreak
 server.get("/teabreak", function (req, res) {
     console.log("New Reuest Recived");

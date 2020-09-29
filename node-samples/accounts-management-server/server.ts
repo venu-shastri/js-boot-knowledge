@@ -7,6 +7,7 @@ import {UserDataMemoryRepository} from './userDataMemoryRepository'
 import { User } from './userModel';
 import bodyParser from 'body-parser'
 
+import path from 'path' // node Js Built in module
 const server=express();
 const PORT=8003;
 
@@ -14,6 +15,12 @@ const accountServiceref=new AccountDataService(new UserDataMemoryRepository());
 
 //Configure - middleware /filter
 server.use(bodyParser.json());
+
+
+server.get("/index.html",(req,res)=>{
+
+    res.sendFile(path.join(__dirname+'/index.html'));
+});
 
 //http get request - http://localhost:8003/teabreak
 server.get("/teabreak",(req,res)=>{
