@@ -1,6 +1,61 @@
+<!DOCTYPE html>
 <html>
-    <head></head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <head>
+        <title>Learning API calls using typescript and Angular</title>
+        <script src="https://code.jquery.com/jquery-3.5.1.js" integrity="sha256-QWo7LDvxbWT2tbbQ97B53yJnYU3WhH/C8ycbRAkjPDc=" crossorigin="anonymous"></script>
+        <style>
+            .container {        
+                display: inline-grid;
+                align-items: center;;
+            }
+        </style>
+    </head>
     <body>
         <h1>Test Page</h1>
+     
+ 
+        <script>
+            $(document).ready(function () {
+                // $('#login-btn').click(function () {
+                //     let username = $('#userName').val();
+                //     let password = $('#password').val();
+                //     let userObject={userName: username, password :password};
+                //     let jsonObject=JSON.stringify(userObject);
+                //     $.post({
+                //         url:'/accounts/validate',
+                //         data:jsonObject,
+                //         contentType:"application/json"},
+                        
+                //         ).done(()=>{
+
+                //             console.log("completed");
+
+                //         });
+                        
+                    
+                //     console.log("Function called");
+                // });
+                $('#login-btn').click(
+                    function () {
+                                let xhr=new XMLHttpRequest();
+                                xhr.open("POST","/accounts/validate",true);
+                                xhr.onreadystatechange=function(){
+
+                                    if(xhr.readyState==4){
+                                        console.log(xhr.status);
+                                    }
+                                };
+                                xhr.setRequestHeader("content-type","application/json");
+                                let username = $('#userName').val();
+                               let password = $('#password').val();
+                                 let userObject={userName: username, password :password};
+                                 let jsonObject=JSON.stringify(userObject);
+                                 xhr.send(jsonObject);
+                            
+                });
+            });
+            
+        </script>
     </body>
 </html>

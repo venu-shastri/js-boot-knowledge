@@ -43,6 +43,7 @@ res.send(result);
 server.post("/accounts/validate",(req,res)=>{
 
     let credentials=req.body;
+    console.log(credentials);
     if(credentials){
 
         if(accountServiceref.validate(credentials.userName,credentials.password)){
@@ -52,7 +53,9 @@ server.post("/accounts/validate",(req,res)=>{
             res.status(403).json({message:"Invalid Credentials"});
         }
     }
-    res.status(400).json({messgae:"Bad Request"});
+    else{
+       res.status(400).json({messgae:"Bad Request"});
+    }
 
     
 

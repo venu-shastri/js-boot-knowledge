@@ -1,5 +1,5 @@
 "use strict";
-var __importDefault = (this && this.__importDefault) || function (mod) {
+var __importDefault =(this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -31,6 +31,7 @@ server.post("/accounts/register", function (req, res) {
 });
 server.post("/accounts/validate", function (req, res) {
     var credentials = req.body;
+    console.log(credentials);
     if (credentials) {
         if (accountServiceref.validate(credentials.userName, credentials.password)) {
             res.status(200).json({ message: "Valid Credentials" });
@@ -39,7 +40,9 @@ server.post("/accounts/validate", function (req, res) {
             res.status(403).json({ message: "Invalid Credentials" });
         }
     }
-    res.status(400).json({ messgae: "Bad Request" });
+    else {
+        res.status(400).json({ messgae: "Bad Request" });
+    }
 });
 server.listen(PORT, function () {
     console.log("Account Management Server is running at http://localhost:" + PORT);
