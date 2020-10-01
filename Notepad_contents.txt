@@ -1,0 +1,19 @@
+ng g module layout
+ng g component layout/header --m layout --selector header-comp
+ng g component layout/footer --m layout --selector footer-comp
+ng g component layout/nav --m layout --selector nav-comp
+ng g component layout/content --m layout --selector content-comp
+ng g component app --m app --selectpr app-comp
+
+ng g module accounts
+
+dom tree
+		AppComponent
+			HeaderComponent
+			ContentComponent
+				GreeterComponent
+			FooterComponent
+
+dom Tree
+	HeaderComponent
+	GreeterComponent
