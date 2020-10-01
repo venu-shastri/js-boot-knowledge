@@ -7,7 +7,8 @@ import {LayoutModule} from './layout/layout.module'
 @NgModule({
   declarations:[GreeterComponent, AppComponent],
   bootstrap:[AppComponent],
-  imports:[BrowserModule,LayoutModule]
+  imports:[BrowserModule,LayoutModule],
+  exports:[GreeterComponent]
 })
 export class AppModule{
 

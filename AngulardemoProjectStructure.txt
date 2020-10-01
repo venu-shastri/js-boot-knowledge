@@ -1,0 +1,49 @@
+src
+ app
+
+  layout
+	header
+		header.component.ts
+		header.component.html
+	        header.component.css
+		header.component.spec.ts
+	footer
+		footer.component.ts
+		footer.component.html
+	        footer.component.css
+		footer.component.spec.ts
+	nav
+		nav.component.ts
+		nav.component.html
+	        nav.component.css
+		nav.component.spec.ts
+	content
+		content.component.ts
+		content.component.html
+	        content.component.css
+		content.component.spec.ts
+  layout.module.ts
+  utility
+    greeter
+      greeter.component.ts
+      greeter.component.html
+  utility.module.ts
+ 
+  accounts
+	account.moodule.ts
+	login
+		login.component.ts
+		login.component.html
+	        login.component.css
+		login.component.spec.ts
+	signup
+		signup.component.ts
+		signup.component.html
+	        signup.component.css
+		signup.component.spec.ts
+
+	changepassword
+
+	recoverypassword
+
+	    

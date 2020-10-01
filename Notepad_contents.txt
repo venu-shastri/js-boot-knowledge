@@ -5,7 +5,12 @@ ng g component layout/nav --m layout --selector nav-comp
 ng g component layout/content --m layout --selector content-comp
 ng g component app --m app --selectpr app-comp
 
-ng g module accounts
+ng g module utility
+
+app
+  layout
+
+    
 
 dom tree
 		AppComponent
