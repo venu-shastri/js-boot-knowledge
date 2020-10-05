@@ -13,7 +13,8 @@ import {ApiLoggerService} from './utility/services/apiLogger.service'
   imports:[BrowserModule,LayoutModule,AccountsModule],
   exports:[GreeterComponent],
   providers:[
-    {provide:'logger',useClass:ApiLoggerService}
+    {provide:'logger',useClass:ApiLoggerService},
+    {provide:'apiBaseAddress',useValue:"http://localhost:8003"}
   ]
 })
 export class AppModule{

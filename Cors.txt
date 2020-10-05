@@ -1,0 +1,36 @@
+module
+component
+directive
+bindings
+services and service injection
+
+
+CORS : Cross Origin Resource Sharing
+
+Ajax requests
+
+New feature supported by Modern browsers
+
+URL Format
+
+"protocolScheme://Origin/Segment1/Segment2...."
+
+Origin 
+	"HostAddress:portnumber"
+
+			AJAX-request - Cors Request
+
+Referer							Service
+
+http://localhost:4200/index.html			http://localhost:8003/accounts/register
+
+CORS Request Types
+	1.Basic
+	2.Preflighted Request
+
+
+Enable Cors Support
+1.npm install cors 
+2.npm install @types/cors
+2.configure cors middleware
+	server.use(cors());//middleware send responses for CORS Request

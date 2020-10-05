@@ -6,6 +6,7 @@ import {AccountDataService} from './accountDataService'
 import {UserDataMemoryRepository} from './userDataMemoryRepository'
 import { User } from './userModel';
 import bodyParser from 'body-parser'
+import cors from 'cors';
 
 import path from 'path' // node Js Built in module
 const server=express();
@@ -14,7 +15,9 @@ const PORT=8003;
 const accountServiceref=new AccountDataService(new UserDataMemoryRepository());
 
 //Configure - middleware /filter
+
 server.use(bodyParser.json());
+server.use(cors());//middleware send responses for CORS Request
 
 
 server.get("/index.html",(req,res)=>{
@@ -36,7 +39,7 @@ server.post("/accounts/register",(req,res)=>{
 
 let userObj=new User(req.body.name,req.body.password,req.body.email);
 let result=accountServiceref.register(req.body);
-res.send(result);
+res.status(200).json({message:result});
 
 })
 

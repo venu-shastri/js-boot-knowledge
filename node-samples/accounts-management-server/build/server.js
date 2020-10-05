@@ -1,5 +1,5 @@
 "use strict";
-var __importDefault =(this && this.__importDefault) || function (mod) {
+var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
@@ -10,12 +10,14 @@ var accountDataService_1 = require("./accountDataService");
 var userDataMemoryRepository_1 = require("./userDataMemoryRepository");
 var userModel_1 = require("./userModel");
 var body_parser_1 = __importDefault(require("body-parser"));
+var cors_1 = __importDefault(require("cors"));
 var path_1 = __importDefault(require("path")); // node Js Built in module
 var server = express_1.default();
 var PORT = 8003;
 var accountServiceref = new accountDataService_1.AccountDataService(new userDataMemoryRepository_1.UserDataMemoryRepository());
 //Configure - middleware /filter
 server.use(body_parser_1.default.json());
+server.use(cors_1.default()); //middleware send responses for CORS Request
 server.get("/index.html", function (req, res) {
     res.sendFile(path_1.default.join(__dirname + '/index.html'));
 });
@@ -27,7 +29,7 @@ server.get("/teabreak", function (req, res) {
 server.post("/accounts/register", function (req, res) {
     var userObj = new userModel_1.User(req.body.name, req.body.password, req.body.email);
     var result = accountServiceref.register(req.body);
-    res.send(result);
+    res.status(200).json({ message: result });
 });
 server.post("/accounts/validate", function (req, res) {
     var credentials = req.body;

@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {ConsoleLoggerService} from '../../utility/services/consoleLogger.service'
+import { AccountsService } from '../services/accounts.service';
 @Component({
   selector: 'signup-comp',
   templateUrl: './signup.component.html',
@@ -8,9 +9,11 @@ import {ConsoleLoggerService} from '../../utility/services/consoleLogger.service
 export class SignupComponent implements OnInit {
 
   loggerService:any;
-  constructor(@Inject("logger") loggerService:any) {
+  accountsServiceRef:AccountsService;
+  constructor(@Inject("logger") loggerService:any,accountServiceRef:AccountsService) {
 
     this.loggerService=loggerService;
+    this.accountsServiceRef=accountServiceRef;
    }
 
   userName:string;
@@ -24,8 +27,23 @@ export class SignupComponent implements OnInit {
   onSignup(){
 
     this.errorMessage=`${this.userName} ${this.password} ${this.email}`
-    this.loggerService.write(this.errorMessage);
+    let user={name:this.userName,password:this.password,email:this.email};
+    let observableStream=this.accountsServiceRef.signup(user);
+    //observe
+    observableStream.subscribe(
+      (data:any)=>{
+        this.loggerService.write(data.message);
+      },
+      (error)=>{
+        this.loggerService.write(error);
+      },
+      ()=>{
+        this.loggerService.write("Request Completed");
+      });
+
+
   }
+
   onReset(){
 
     this.userName="";
