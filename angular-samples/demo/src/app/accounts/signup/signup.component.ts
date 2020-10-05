@@ -1,5 +1,5 @@
-import { Component, OnInit } from '@angular/core';
-
+import { Component, Inject, OnInit } from '@angular/core';
+import {ConsoleLoggerService} from '../../utility/services/consoleLogger.service'
 @Component({
   selector: 'signup-comp',
   templateUrl: './signup.component.html',
@@ -7,7 +7,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  constructor() { }
+  loggerService:any;
+  constructor(@Inject("logger") loggerService:any) {
+
+    this.loggerService=loggerService;
+   }
 
   userName:string;
   password:string;
@@ -20,7 +24,7 @@ export class SignupComponent implements OnInit {
   onSignup(){
 
     this.errorMessage=`${this.userName} ${this.password} ${this.email}`
-    console.log(this.errorMessage);
+    this.loggerService.write(this.errorMessage);
   }
   onReset(){
 
