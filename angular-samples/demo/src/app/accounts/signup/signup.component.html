@@ -1,0 +1,24 @@
+<p>signup works!</p>
+<table>
+  <tr>
+    <td>userName</td>
+    <td> <input placeholder="Enter Name Here" type="text" [(ngModel)]="userName"/> </td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td> <input placeholder="Enter Password Here" type="password" [(ngModel)]="password"/> </td>
+  </tr>
+  <tr>
+    <td>Email</td>
+    <td> <input placeholder="Enter Email Here" type="email" [(ngModel)]="email"/> </td>
+  </tr>
+  <tr>
+    <td> <button  (click)="onSignup()">Signup</button> </td>
+    <td> <button (click)="onReset()" >reset</button> </td>
+  </tr>
+  <tr>
+    <td>Validation Status </td>
+    <td> <output> {{'Validation  Status :'+ errorMessage}}</output> </td>
+  </tr>
+
+</table>

@@ -1,0 +1,29 @@
+<p>login works!</p>
+<table>
+  <tr>
+    <td>userName</td>
+    <td> <input placeholder="Enter Name Here"
+        #userNameTextBox
+        type="text"
+        (input)="onUserNameEdit(userNameTextBox.value)"
+        [value]="userName"  /> </td>
+  </tr>
+  <tr>
+    <td>Password</td>
+    <td> <input placeholder="Enter Password Here"
+       #passwordTextBox
+       type="password"
+        (input)="onPasswordEdit(passwordTextBox.value)"
+        [value]="password" /> </td>
+  </tr>
+  <tr>
+    <td> <button  (click)="onLogin()">Login</button> </td>
+    <td> <button (click)="onReset()" >reset</button> </td>
+  </tr>
+  <tr>
+    <td>Status </td>
+    <td> <output> {{'Login Status :'+ errorMessage}}</output> </td>
+  </tr>
+
+</table>
+
