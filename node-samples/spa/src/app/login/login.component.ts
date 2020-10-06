@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {Router} from '@angular/router'
 
 @Component({
   selector: 'login-comp',
@@ -7,9 +8,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  constructor(private route:Router) { }
 
   ngOnInit(): void {
+  }
+  onLogin(){
+
+    //Validate Credentials
+    //Navigate -> MainDashBoard
+    let userName="tom";
+    this.route.navigate(['dashboard',userName]);
+
   }
 
 }
